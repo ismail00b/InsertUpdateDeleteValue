@@ -136,14 +136,17 @@
 		scope.newValue = function(){
 			
 			scope.inputInEdition = true;
-			
-			var valuesLength = scope.Values.length;
+			//it should be tested before trying to access the length property
+			if(scope.Values !== undefined){
+			  var valuesLength = scope.Values.length;
+			}
 			var values;
 			if(valuesLength>0){
 				values	= scope.Values[valuesLength-1];
 			}
 			else{
-				values = {};
+				//it should be initialized as an array, to accept the push method.
+				values = [];
 			}
 			
 			var localeDate = new Date();
